@@ -8,7 +8,7 @@ int FindLargestElement(vector<int> &arr,int n)
     {
         if(arr[i]>max)
         {
-            max = arr[i];    // 
+            max = arr[i];     
         }
     }
     return max;
@@ -17,7 +17,8 @@ int main()
 {
     vector<int> arr;         // create vector array  
     int a;
-    int n,largestElement;    // n for take size of an array from user
+    int n;                   // take size of an array from user
+    int largestElement;      // to show largest element
     cout<<"Enter an array size: ";
     cin>>n;
     cout<<endl;
