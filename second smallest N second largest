@@ -1,0 +1,55 @@
+#include<iostream>
+#include<limits.h>
+#include<vector>
+using namespace std;
+int second_smallestNsecond_largest(vector<int> &arr,int n)
+{
+    if(n<2)
+        return -1;
+    int small = INT_MAX,second_small = INT_MAX;
+    int largest = INT_MIN,second_largest = INT_MIN;
+    
+    for(int i=0;i<n;i++)
+    {
+        if(arr[i]>largest)
+        {
+            largest = arr[i];
+        }
+        if(arr[i]<small)
+        {
+            small = arr[i];
+        }
+    }
+    for(int i = 0; i < n; i++) 
+    {
+       if(arr[i] < second_small && arr[i] != small)
+       {
+          second_small = arr[i];
+       }
+       else if(arr[i] > second_largest && arr[i] != largest)
+       {
+          second_largest = arr[i];
+       }
+    }
+    cout<<"Largest element in given array is "<<largest<<endl;
+    cout<<"Second largest element in given array is "<<second_largest<<endl;
+    cout<<"Smallest element in given array is "<<small<<endl;
+    cout<<"Second smallest element in given array is "<<second_small<<endl;
+    return 0;    
+}
+int main() {
+    vector<int> arr;
+    int n,a;
+    
+    cout<<"Enter size of an array: ";
+    cin>>n;
+    
+    cout<<"Enter array elements: ";
+    for(int i=0;i<n;i++)
+    {
+        cin>>a;
+        arr.push_back(a);
+    }
+    second_smallestNsecond_largest(arr,n);
+    return 0;
+}
