@@ -10,6 +10,7 @@ void twosum(vector<int> &arr,int n,int x)
         {
             cout<<i+1<<" position"<<endl;
             cout<<arr[i]<<" = "<<x<<endl;
+            c++;
             
         }
         for(int j=i;j<n;j++)
@@ -22,9 +23,15 @@ void twosum(vector<int> &arr,int n,int x)
             {
                 cout<<i+1<<" "<<j+1<<" position"<<endl;
                 cout<<arr[i]<<" + "<<arr[j]<<" = "<<x<<endl;
+                c++;
                 
             }
         }
+    }
+    if(c==0)
+    { 
+        cout<<"No such elements which is equal or to make equal to "<<x<<endl;
+        return;
     }
 }
 int main()
