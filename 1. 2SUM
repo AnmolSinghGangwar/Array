@@ -26,6 +26,7 @@ void twosum(vector<int> &arr,int n,int x)
             }
         }
     }
+    cout<<"No two element is found which is equal to "<<x<<endl;
 }
 int main()
 {
