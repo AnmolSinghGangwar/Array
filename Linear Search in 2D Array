@@ -1,0 +1,42 @@
+#include<iostream>
+#include<vector>
+#include<algorithm>
+using namespace std;
+void searchIn2DArray(int arr[][1000],int n,int m,int x)
+{
+    for(int i=0;i<n;i++)
+    {
+        for(int j=0;j<m;j++)
+        {
+            if(arr[i][j]==x)
+            {
+                cout<<x<<" is found at in an 2D matrix at "<<i+1<<" row & "<<j+1<<" column"<<endl;
+                return;
+            }
+        }
+    }
+    cout<<x<<" is not found in 2D matrix";
+}
+int main()
+{
+    int arr[1000][1000];
+    int a,n,m,x;
+    
+    cout<<"Enter number of rows: ";
+    cin>>n;
+    cout<<"Enter number of columns: ";
+    cin>>m;
+    cout<<endl<<"Enter elements of an array: ";
+    for(int i=0;i<n;i++)
+    {
+        for(int j=0;j<m;j++)
+        {
+            cin>>arr[i][j];
+        }
+        
+    }
+    cout<<"Enter element which u want to find: ";
+    cin>>x;
+    searchIn2DArray(arr,n,m,x);
+    return 0;
+}
