@@ -1,0 +1,64 @@
+#include<iostream>
+#include<vector>
+#include<algorithm>
+using namespace std;
+void buyStockAndSell(vector<int> &arr,int n)
+{
+    int b,s,min,max;
+    min = arr[0];
+    for(int i=0;i<n;i++)
+    {
+        if(min>arr[i])
+        {
+            min = arr[i];
+            b = i;
+        }
+    }
+    if(b==n-1)
+    {
+        cout<<"No Profit";
+        return;
+    }
+    cout<<"Buy at: "<<b+1<<" day"<<endl;
+    max = arr[b+1];
+    for(int j=b+1;j<n;j++)
+    {
+        if(max < arr[j])
+        {
+            max = arr[j];
+            s = j;
+        }
+    }
+    cout<<s+1<<endl;
+    if(arr[b]<arr[s])
+    {
+        cout<<"We have profit: "<<arr[s]-arr[b]<<endl;
+        return;
+    }
+    else if(arr[b]==arr[s])
+    {
+        cout<<"We have no profit"<<endl;
+        return;
+    }
+    else
+    {
+        cout<<"We have loss: "<<arr[s]-arr[b]<<endl;
+        return;
+    }
+    
+}
+int main()
+{
+    vector<int> arr;
+    int n,a;
+    cout<<"Enter the size or number of prices: ";
+    cin>>n;
+    
+    cout<<"Enter prices or elements in an array: ";
+    for(int i=0;i<n;i++)
+    {
+        cin>>a;
+        arr.push_back(a);
+    }
+    buyStockAndSell(arr,n);
+}
