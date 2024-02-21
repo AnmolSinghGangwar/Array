@@ -1,0 +1,56 @@
+#include<iostream>
+#include<vector>
+#include<algorithm>
+using namespace std;
+void countSubArray(vector<int> &arr)
+{
+    int n = arr.size();
+    int sum,k,count = 0;
+    cout<<"Enter sum value: ";
+    cin>>k;
+    for(int i=0;i<n;i++)
+    {
+        sum = arr[i];
+        if(sum == k)
+        {
+            count++;
+            continue;
+        }
+        else
+        {
+            for(int j=i+1;j<n;j++)
+            {
+                sum = sum + arr[j];
+                if(sum == k)
+                {
+                    count++;
+                    break;
+                }
+                if(sum>k)
+                {
+                    break;
+                }
+            }
+            
+        }
+        
+    }
+    cout<<count;
+}
+int main()
+{
+    vector<int> arr;
+    int a,n;
+    cout<<"Enter size of an array: ";
+    cin>>n;
+    cout<<"Enter elements of an array: "<<endl;
+    for(int i=0;i<n;i++)
+    {
+        cin>>a;
+        arr.push_back(a);
+    }
+    countSubArray(arr);
+    return 0;
+    
+    
+}
