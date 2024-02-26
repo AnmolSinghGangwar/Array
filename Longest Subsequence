@@ -1,0 +1,51 @@
+#include<iostream>
+#include<vector>
+#include<algorithm>
+using namespace std;
+void longestSubsequence(vector<int> &arr,int n)
+{
+    int maxi = 0;
+    int val = 0;
+    int a;
+    for(int i=0;i<n;i++)
+    {
+        int count = 0;
+        int cat = 0;
+        int a; 
+        count++;
+        for(int j=0;j<n;j++)
+        {
+            
+            if(arr[j] == arr[i]+val)
+            {
+                count++;
+                val++;
+                j = -1;
+                
+            }
+            
+        }
+        if(count > maxi)
+        {
+            maxi = count;
+        }
+    }
+    cout<<endl<<"Longest Subsequence have "<<maxi<<" elements";
+    return;
+}
+int main(){
+    vector<int> arr;
+    int a,n;
+    
+    cout<<"Enter the size of an array: ";
+    cin>>n;
+    cout<<"Enter the elements of an array: ";
+    cout<<endl;
+    for(int i=0;i<n;i++)
+    {
+        cin>>a;
+        arr.push_back(a);
+    }
+    longestSubsequence(arr,n);
+    return 0;
+}
